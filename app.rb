@@ -68,3 +68,8 @@ post('/add_brand') do
     erb(:error_brand)
   end
 end
+
+get('/brand/:id') do
+  @brand = Brand.find(params[:id].to_i)
+  erb(:brand)
+end

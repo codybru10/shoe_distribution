@@ -1,0 +1,30 @@
+<h1><%= @brand.name %></h1>
+
+<h3>You can find <%= @brand.name %> shoes at the following stores:</h3>
+
+<% if @brand.stores.any?%>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Store Name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @brand.stores.each do |store| %>
+        <tr>
+          <td><%= store.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p><%= @brand.name %> is not sold at any stores yet.</p>
+<% end %>
+
+
+<br>
+
+<p><a href="/">Home</a></p>
+<p><a href="/brands">View All Brands</a></p>
+<p><a href="/stores">View All Stores</a></p>
