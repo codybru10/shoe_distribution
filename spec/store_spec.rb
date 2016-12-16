@@ -14,8 +14,8 @@ describe(Store) do
   end
 
   it('capitalizes the store name no matter what user inputs') do
-    test_store = Store.create({:name => "payless"})
-    expect(test_store.name()).to(eq("Payless"))
+    test_store = Store.create({:name => "finish line"})
+    expect(test_store.name()).to(eq("Finish Line"))
   end
 
   it('doesnt allow duplicates of a store') do

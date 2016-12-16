@@ -1,3 +1,5 @@
+require 'pry'
+
 class Brand < ActiveRecord::Base
   has_and_belongs_to_many(:stores)
   validates(:name, :presence => true)
@@ -7,6 +9,6 @@ class Brand < ActiveRecord::Base
   private
 
   define_method(:capitalize) do
-    self.name=(name.capitalize)
+    self.name=(name.split.map(&:capitalize).join(' '))
   end
 end

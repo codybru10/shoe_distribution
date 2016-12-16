@@ -44,9 +44,9 @@ describe('how to update store name') do
     fill_in('store_name', :with => 'Champs')
     click_button('Add Store')
     click_link('Champs')
-    fill_in('edit_name', :with => 'Champs shop')
+    fill_in('edit_name', :with => 'Champs Shop')
     click_button('Update Store Name')
-    expect(page).to have_content('Champs shop')
+    expect(page).to have_content('Champs Shop')
   end
 end
 

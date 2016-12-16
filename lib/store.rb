@@ -7,6 +7,6 @@ class Store < ActiveRecord::Base
   private
 
   define_method(:capitalize) do
-    self.name=(name().capitalize())
+    self.name=(name.split.map(&:capitalize).join(' '))
   end
 end
