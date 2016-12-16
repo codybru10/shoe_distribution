@@ -14,9 +14,13 @@ end
 
 post('/add_store') do
   store_name = params[:store_name]
-  @store = Store.create({:name => store_name})
+  @store = Store.new({:name => store_name})
   @stores = Store.all
-  redirect('/stores')
+  if @store.save()
+    redirect('/stores')
+  else
+    erb(:error_store)
+  end
 end
 
 get('/store/:id') do
@@ -35,8 +39,11 @@ end
 patch('/update_store/:id') do
   store_name = params[:edit_name]
   @store = Store.find(params[:id].to_i)
-  @store.update({:name => store_name})
-  redirect("/store/#{@store.id}")
+  if @store.update({:name => store_name})
+    redirect("/store/#{@store.id}")
+  else
+    erb(:error_store)
+  end
 end
 
 delete('/delete_store/:id') do
@@ -53,7 +60,11 @@ end
 
 post('/add_brand') do
   brand_name = params[:brand_name]
-  @brand = Brand.create({:name => brand_name})
+  @brand = Brand.new({:name => brand_name})
   @brands = Brand.all
-  redirect('/brands')
+  if @brand.save()
+    redirect('/brands')
+  else
+    erb(:error_brand)
+  end
 end
