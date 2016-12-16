@@ -37,3 +37,26 @@ describe('how to view brands for that specific brand') do
     expect(page).to have_content('All Brands')
   end
 end
+
+describe('how to update store name') do
+  it('allows user to fill in form to edit store name', {:type => :feature}) do
+    visit('/stores')
+    fill_in('store_name', :with => 'Champs')
+    click_button('Add Store')
+    click_link('Champs')
+    fill_in('edit_name', :with => 'Champs shop')
+    click_button('Update Store Name')
+    expect(page).to have_content('Champs shop')
+  end
+end
+
+describe('how to update store name') do
+  it('allows user to fill in form to edit store name', {:type => :feature}) do
+    visit('/stores')
+    fill_in('store_name', :with => 'Champs')
+    click_button('Add Store')
+    click_link('Champs')
+    click_button('Delete Store')
+    expect(page).to have_content('All Stores')
+  end
+end
