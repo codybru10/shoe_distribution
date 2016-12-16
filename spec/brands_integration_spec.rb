@@ -18,7 +18,7 @@ describe('adds a brand to all brand list', {:type => :feature}) do
 end
 
 describe('view stores a shoe brand is sold at', {:type => :feature}) do
-  it('allows a user to click link to view stores') do
+  it('allows a user to click link to view stores that shoe brand is sold at') do
     visit('/brands')
     fill_in('brand_name', :with =>'Nike')
     click_button('Add Brand')
@@ -27,8 +27,8 @@ describe('view stores a shoe brand is sold at', {:type => :feature}) do
   end
 end
 
-describe('view stores a shoe brand is sold at', {:type => :feature}) do
-  it('allows a user to click link to view stores') do
+describe('takes you to a page where all stores are displayed', {:type => :feature}) do
+  it('allows a user to click link to view all stores') do
     visit('/brands')
     fill_in('brand_name', :with =>'Nike')
     click_button('Add Brand')
