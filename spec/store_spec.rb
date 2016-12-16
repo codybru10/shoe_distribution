@@ -13,4 +13,9 @@ describe(Store) do
     expect(test_store.save()).to(eq(false))
   end
 
+  it('capitalizes the store name no matter what user inputs') do
+    test_store = Store.create({:name => "payless"})
+    expect(test_store.name()).to(eq("Payless"))
+  end
+
 end

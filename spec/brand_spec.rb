@@ -13,5 +13,9 @@ describe(Brand) do
     expect(test_brand.save()).to(eq(false))
   end
 
+  it('capitalizes the shoe brand no matter what user inputs') do
+    test_brand = Brand.create({:name => "nike"})
+    expect(test_brand.name()).to(eq("Nike"))
+  end
 
 end
