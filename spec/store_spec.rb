@@ -18,4 +18,11 @@ describe(Store) do
     expect(test_store.name()).to(eq("Payless"))
   end
 
+  it('doesnt allow duplicates of a store') do
+    test_store1 = Store.new({:name => "Payless"})
+    test_store1.save
+    test_store2 = Store.new({:name => "Payless"})
+    expect(test_store2.save()).to(eq(false))
+  end
+
 end

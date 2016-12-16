@@ -18,4 +18,11 @@ describe(Brand) do
     expect(test_brand.name()).to(eq("Nike"))
   end
 
+  it('doesnt allow duplicates of a brand') do
+    test_brand1 = Store.new({:name => "Converse"})
+    test_brand1.save
+    test_brand2 = Store.new({:name => "Converse"})
+    expect(test_brand2.save()).to(eq(false))
+  end
+
 end
