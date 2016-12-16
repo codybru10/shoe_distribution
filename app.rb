@@ -21,7 +21,15 @@ end
 
 get('/store/:id') do
   @store = Store.find(params['id'].to_i)
+  @all_brands = Brand.all
   erb(:store)
+end
+
+patch('/add_brand_to_store/:id') do
+  @store = Store.find(params[:id].to_i)
+  brand_to_add = Brand.find(params[:add_brand_to_store])
+  @store.brands.push(brand_to_add)
+  redirect("/store/#{@store.id}")
 end
 
 patch('/update_store/:id') do
