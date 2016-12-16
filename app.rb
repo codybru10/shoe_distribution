@@ -19,8 +19,23 @@ post('/add_store') do
   redirect('/stores')
 end
 
-get('/brand/:id') do
-  erb(:brand)
+get('/store/:id') do
+  @store = Store.find(params['id'].to_i)
+  erb(:store)
+end
+
+patch('/update_store/:id') do
+  store_name = params[:edit_name]
+  @store = Store.find(params[:id].to_i)
+  @store.update({:name => store_name})
+  redirect("/store/#{@store.id}")
+end
+
+delete('/delete_store/:id') do
+  @store = Store.find(params[:id].to_i)
+  @store.destroy
+  @stores = Store.all
+  redirect("/stores")
 end
 
 get('/brands') do

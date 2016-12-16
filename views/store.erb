@@ -1,0 +1,21 @@
+<h2><%= @store.name %></h2>
+
+the list of brands will go here
+
+<h3>Update Store Name</h3>
+<form action="/update_store/<%= @store.id %>" method="post">
+  <div class="form-group">
+    <input type="hidden" name="_method" value="patch">
+    <label for="edit_name">Enter New Name</label>
+    <input type="text" id="edit_name" name="edit_name" class="form-control">
+    <br>
+  </div>
+  <button type="submit" class="btn btn-primary">Update Store Name</button>
+</form>
+<br>
+<form action="/delete_store/<%= @store.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="btn btn-danger">Delete Store</button>
+</form>
+<br>
+<p><a href="/stores">Back to Store List</a></p>
